@@ -46,6 +46,7 @@
 ;; external libraries
 (require 'ox-html)
 (require 'helm)
+(require 'org-id)
 
 ;; built-in Emacs lib
 (require 'cl-lib)     ;; Common-lisp emulation library
@@ -1228,7 +1229,9 @@ Note: This command requires Python3 installed."
                  )))
       ;; Got to top of file
       (goto-char (point-min))
-      (insert text2))))
+      (insert text2)
+      (goto-char (point-max))
+      (org-id-get-create))))
 
 (defun org-wiki-panel ()
   "Create a command panel for org-wiki."
